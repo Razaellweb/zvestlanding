@@ -1,103 +1,56 @@
+import Cases from "@/components/Home/cases";
+import FAQ from "@/components/Home/faq";
+import Features from "@/components/Home/features";
+import Products from "@/components/Home/products";
+import Testimonials from "@/components/Home/testimonials";
+import CTA from "@/components/cta";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="mt-[4rem] md:mt-[6.5rem] mb-[10rem]">
+      <section className="w-full flex items-start flex-wrap justify-between">
+        <div className="w-[97%] mx-auto md:w-[47%] text-center md:text-left">
+          <div className="w-fit flex items-center mx-auto md:mx-0 gap-2 px-3 py-2.5 md:py-1.5 bg-[#262626] rounded-full">
+            <img src="/Icon-1.png" alt="" className="" />
+            <h1 className="text-base">No LLC Required, No Credit Check.</h1>
+          </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          <h1 className="text-3xl md:text-4xl xl:text-5xl pt-4">
+            Welcome to GeekPay Empowering Your <span className="text-[#CAFF33]"> Financial Journey </span>
+          </h1>
+
+          <h1 className="text-base pt-5 text-[#E4E4E7]">
+            At GeekPay, our mission is to provide comprehensive banking solutions that empower individuals and businesses to achieve their financial goals. We are committed to delivering personalized and innovative services that prioritize our customers' needs.
+          </h1>
+
+          <Link href="/signup">
+          <button className='px-7 py-3 rounded-full bg-[#CAFF33] text-black text-xl cursor-pointer mt-[2rem]'>Open Account</button>
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        <div className="relative w-full md:w-[47%] mt-[3.5rem] md:mt-0">
+          <img src="/Abstract-Design-1.png" alt="" className="absolute -z-10 right-[0%] top-0 overflow-hidden" />
+          <img src="/Container.png" alt="" className="w-[99%] h-[60vh] md:w-[34vw] md:h-[84vh] 2xl:w-[27vw] 2xl:h-[60vh] z-50" />
+        </div>
+      </section>
+
+      <Products />
+
+      <Cases />
+
+      <Features />
+
+      <FAQ />
+
+      <Testimonials />
+
+      {/* CTA Section */}
+
+      <CTA />
+
+      {/* Footer Section */}
     </div>
   );
 }
