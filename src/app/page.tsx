@@ -4,7 +4,6 @@ import Features from "@/components/Home/features";
 import Products from "@/components/Home/products";
 import Testimonials from "@/components/Home/testimonials";
 import CTA from "@/components/cta";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {

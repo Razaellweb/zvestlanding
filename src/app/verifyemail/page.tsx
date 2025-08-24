@@ -4,30 +4,30 @@ import React, { useState } from "react";
 import Testimonials from "@/components/Home/testimonials";
 
 const VerifyEmail = () => {
-    const [code, setCode] = useState(Array(6).fill(""));
+    // const [code, setCode] = useState(Array(6).fill(""));
     const[codei, setCodei] = useState("");
     const [loading, setLoading] = useState(false);
     const [loadingi, setLoadingi] = useState(false);
 
-  const handleChange = (value: string, index: number) => {
-    if (!/^[0-9]?$/.test(value)) return; // allow only 0–9
-    const newCode = [...code];
-    newCode[index] = value;
-    setCode(newCode);
+  // const handleChange = (value: string, index: number) => {
+  //   if (!/^[0-9]?$/.test(value)) return; // allow only 0–9
+  //   const newCode = [...code];
+  //   newCode[index] = value;
+  //   setCode(newCode);
 
-    // auto-focus next input
-    if (value && index < 5) {
-      const nextInput = document.getElementById(`code-${index + 1}`);
-      nextInput?.focus();
-    }
-  };
+  //   // auto-focus next input
+  //   if (value && index < 5) {
+  //     const nextInput = document.getElementById(`code-${index + 1}`);
+  //     nextInput?.focus();
+  //   }
+  // };
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, index: number) => {
-    if (e.key === "Backspace" && !code[index] && index > 0) {
-      const prevInput = document.getElementById(`code-${index - 1}`);
-      prevInput?.focus();
-    }
-  };
+  // const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, index: number) => {
+  //   if (e.key === "Backspace" && !code[index] && index > 0) {
+  //     const prevInput = document.getElementById(`code-${index - 1}`);
+  //     prevInput?.focus();
+  //   }
+  // };
 
   // const handleSubmit = () => {
   //   const fullCode = code.join("");

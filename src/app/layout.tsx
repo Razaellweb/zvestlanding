@@ -5,7 +5,6 @@ import "slick-carousel/slick/slick-theme.css";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import { fetchApi } from "@/components/utils/api";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

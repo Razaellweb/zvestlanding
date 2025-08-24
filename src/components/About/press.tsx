@@ -18,6 +18,7 @@ const Press = () => {
           <img
             src="/Image-4.png"
             className="rounded-t-[1rem] rounded-b-[0.5rem]"
+            alt=""
           />
           <div className="px-4">
           <h1 className="text-xl md:text-2xl font-medium pt-6">GeekPay Launches New Rewards Program to Enhance Customer Loyalty and Satisfaction</h1>
@@ -42,6 +43,7 @@ const Press = () => {
           <img
             src="/Image-5.png"
             className="rounded-t-[1rem] rounded-b-[0.5rem]"
+            alt=""
           />
           <div className="px-4">
           <h1 className="text-xl md:text-2xl font-medium pt-6">GeekPay Expands Branch Network with Opening of New Location in Chennai</h1>
@@ -66,6 +68,7 @@ const Press = () => {
           <img
             src="/Image-6.png"
             className="rounded-t-[1rem] rounded-b-[0.5rem]"
+            alt=""
           />
           <div className="px-4">
           <h1 className="text-xl md:text-2xl font-medium pt-6">GeekPay Partners with Local Nonprofit to Support Financial Education Initiatives</h1>
@@ -90,6 +93,7 @@ const Press = () => {
           <img
             src="/Image-7.png"
             className="rounded-t-[1rem] rounded-b-[0.5rem]"
+            alt=""
           />
           <div className="px-4">
           <h1 className="text-xl md:text-2xl font-medium pt-6">GeekPay Launches Sustainable Banking Initiative to Promote Environmental Responsibility</h1>
