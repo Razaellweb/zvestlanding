@@ -24,7 +24,7 @@ export default function Home() {
             At GeekPay, our mission is to provide comprehensive banking solutions that empower individuals and businesses to achieve their financial goals. We are committed to delivering personalized and innovative services that prioritize our customers' needs.
           </h1>
 
-          <Link href="/signup">
+          <Link href="/">
           <button className='px-7 py-3 rounded-full bg-[#CAFF33] text-black text-xl cursor-pointer mt-[2rem]'>Open Account</button>
           </Link>
         </div>

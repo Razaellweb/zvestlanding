@@ -20,7 +20,7 @@ const CTA = () => {
           </h1>
         </div>
         <div className="w-fit right-0 mt-4 md:mt-0 mx-auto md:mx-0">
-          <Link href="/signup">
+          <Link href="/">
           <button className='px-7 py-3 rounded-full bg-[#CAFF33] text-black text-xl cursor-pointer mt-[2rem]'>Open Account</button>
           </Link>
         </div>

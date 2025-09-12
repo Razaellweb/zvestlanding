@@ -45,10 +45,10 @@ const Navbar = () => {
           {/* Auth Buttons */}
           <div className="flex items-center gap-8">
             <h1 className="text-xl cursor-pointer">
-              <Link href="/signup">Sign Up</Link>
+              <Link href="/">Sign Up</Link>
             </h1>
             <button className="px-7 py-3 rounded-full bg-[#CAFF33] text-black text-xl cursor-pointer">
-              <Link href="/signin">Login</Link>
+              <Link href="/">Login</Link>
             </button>
           </div>
         </section>
@@ -106,10 +106,10 @@ const Navbar = () => {
 
           <hr className="border-gray-700 my-4" />
           <h1 className="text-lg cursor-pointer">
-            <Link href="/signup" onClick={() => setMenuOpen(false)}>Sign Up</Link>
+            <Link href="/" onClick={() => setMenuOpen(false)}>Sign Up</Link>
           </h1>
           <button className="w-full py-3 rounded-full bg-[#CAFF33] text-black text-lg">
-            <Link href="/signin" onClick={() => setMenuOpen(false)}>Login</Link>
+            <Link href="/" onClick={() => setMenuOpen(false)}>Login</Link>
           </button>
         </div>
       </div>
