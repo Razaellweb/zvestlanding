@@ -4,57 +4,52 @@ import React, { useState } from "react";
 import Testimonials from "@/components/Home/testimonials";
 
 const VerifyEmail = () => {
-    // const [code, setCode] = useState(Array(6).fill(""));
+    const [code, setCode] = useState(Array(6).fill(""));
     const[codei, setCodei] = useState("");
     const [loading, setLoading] = useState(false);
     const [loadingi, setLoadingi] = useState(false);
 
-  // const handleChange = (value: string, index: number) => {
-  //   if (!/^[0-9]?$/.test(value)) return; // allow only 0–9
-  //   const newCode = [...code];
-  //   newCode[index] = value;
-  //   setCode(newCode);
+  const handleChange = (value: string, index: number) => {
+    if (!/^[0-9]?$/.test(value)) return; // allow only 0–9
+    const newCode = [...code];
+    newCode[index] = value;
+    setCode(newCode);
 
-  //   // auto-focus next input
-  //   if (value && index < 5) {
-  //     const nextInput = document.getElementById(`code-${index + 1}`);
-  //     nextInput?.focus();
-  //   }
-  // };
+    // auto-focus next input
+    if (value && index < 5) {
+      const nextInput = document.getElementById(`code-${index + 1}`);
+      nextInput?.focus();
+    }
+  };
 
-  // const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, index: number) => {
-  //   if (e.key === "Backspace" && !code[index] && index > 0) {
-  //     const prevInput = document.getElementById(`code-${index - 1}`);
-  //     prevInput?.focus();
-  //   }
-  // };
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, index: number) => {
+    if (e.key === "Backspace" && !code[index] && index > 0) {
+      const prevInput = document.getElementById(`code-${index - 1}`);
+      prevInput?.focus();
+    }
+  };
 
-  // const handleSubmit = () => {
-  //   const fullCode = code.join("");
-  //   console.log("Submitted code:", fullCode);
-  //   // call API here
-  // };
-
-  const router = useRouter();
-
-  
-  
-  
-    const handleSubmit = async (e: React.FormEvent) => {
-      e.preventDefault
+  const handleSubmit = async (e: React.FormEvent) => {
+    const fullCode = code.join("");
+    console.log("Submitted code:", fullCode);
+    // call API here
+    e.preventDefault
       setLoading(true);
       // Here you would typically handle the form submission, e.g., send data to an API
-      console.log("Form submitted with:", { codei });
-      localStorage.getItem("tokenRegister")
+      const userString = localStorage.getItem("user")
+      const user = userString ? JSON.parse(userString) : null;
+      console.log(user);
   
       try {
-        const response = await fetch('https://bankapi-qks3.onrender.com/auth/registration/verify-email/', {
+        const response = await fetch('https://bankapi-qks3.onrender.com/verify-email/', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem("tokenRegister")}`,
+            'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ key: codei }),
+          body: JSON.stringify({ 
+            email: user.email,
+            code: fullCode
+           }),
         });
   
         if (!response.ok) {
@@ -64,7 +59,7 @@ const VerifyEmail = () => {
         const data = await response.json();
         console.log('Success:', data);
 
-        if (data.detail === "ok") {
+        if (data.detail === "Email verified successfully.") {
 
           router.replace("/signin");
         }
@@ -76,7 +71,50 @@ const VerifyEmail = () => {
       } finally {
       setLoading(false); // ✅ stop loading after request
     }
-    };
+  };
+
+  const router = useRouter();
+
+  
+  
+  
+    // const handleSubmit = async (e: React.FormEvent) => {
+    //   e.preventDefault
+    //   setLoading(true);
+    //   // Here you would typically handle the form submission, e.g., send data to an API
+    //   console.log("Form submitted with:", { codei });
+    //   localStorage.getItem("tokenRegister")
+  
+    //   try {
+    //     const response = await fetch('https://bankapi-qks3.onrender.com/auth/registration/verify-email/', {
+    //       method: 'POST',
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //         'Authorization': `Bearer ${localStorage.getItem("tokenRegister")}`,
+    //       },
+    //       body: JSON.stringify({ key: codei }),
+    //     });
+  
+    //     if (!response.ok) {
+    //       throw new Error('Network response was not ok');
+    //     }
+  
+    //     const data = await response.json();
+    //     console.log('Success:', data);
+
+    //     if (data.detail === "ok") {
+
+    //       router.replace("/signin");
+    //     }
+
+        
+    //   } catch (error) {
+    //     console.error('Error:', error);
+    //     // Handle error (e.g., show an error message to the user)
+    //   } finally {
+    //   setLoading(false); // ✅ stop loading after request
+    // }
+    // };
 
 
     const handleDelete = async () => {
@@ -123,7 +161,7 @@ const VerifyEmail = () => {
             Verify your account to complete your registration.
           </h1>
 
-          <div className="w-full flex items-center justify-between flex-wrap mt-[4rem]">
+          {/* <div className="w-full flex items-center justify-between flex-wrap mt-[4rem]">
             <input
               type="text"
               value={codei}
@@ -131,10 +169,10 @@ const VerifyEmail = () => {
               placeholder="Enter Code"
               className="w-full mx-auto md:mx-0 bg-[#1a1a1a] rounded-full py-5 px-5 text-xl border border-[#262626] focus:outline-none focus:border-[#CAFF33]"
             />
-          </div>
+          </div> */}
 
           {/* input circle */}
-          {/* <div className="flex justify-center gap-3 mt-[3rem]">
+          <div className="flex justify-center gap-3 mt-[3rem]">
             {code.map((digit, i) => (
               <input
                 key={i}
@@ -148,7 +186,7 @@ const VerifyEmail = () => {
                 className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-[#262626] bg-[#1a1a1a] text-center text-xl text-white focus:outline-none focus:border-[#CAFF33]"
               />
             ))}
-          </div> */}
+          </div>
 
             <div className="w-full flex flex-col items-center justify-center">
           <button disabled={loading} onClick={handleSubmit} className="py-4 w-full md:w-[65%] 2xl:w-[50%] mx-auto rounded-full bg-[#CAFF33] text-black text-xl cursor-pointer mt-[2.5rem]">
