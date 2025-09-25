@@ -1,7 +1,43 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* globals.css or Testimonials.module.css */
-.slick-center article {
-  opacity: 1 !important;
-  transform: scale(1) !important;
+:root {
+  --bg: #f8fafc;
+  --muted: #64748b;
+}
+
+.dark {
+  --bg: #071027;
+  --muted: #94a3b8;
+}
+
+html, body, #__next {
+  height: 100%;
+}
+
+body {
+  @apply bg-gradient-to-b from-zvest-50 to-white text-zvest-900 font-sans leading-normal;
+  background-color: var(--bg);
+}
+
+a {
+  @apply text-zvest-700;
+}
+
+.btn-primary {
+  @apply inline-flex items-center gap-2 bg-gradient-to-r from-zvest-700 to-accent-500 text-white font-semibold rounded-2xl px-5 py-3 shadow-md hover:shadow-lg transition-shadow;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center gap-2 border border-zvest-700 text-zvest-700 rounded-2xl px-4 py-2 hover:bg-zvest-700/5 transition;
+}
+
+.card {
+  @apply bg-white dark:bg-zvest-900/90 border border-zvest-50 dark:border-zvest-700/40 rounded-2xl p-6 shadow-sm;
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, rgba(30,58,138,0.06), rgba(6,182,212,0.04));
 }
